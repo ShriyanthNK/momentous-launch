@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const serifDisplay = Lora({
@@ -31,6 +32,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-navy text-cream">
         {children}
+        <Analytics />
       </body>
     </html>
   );
