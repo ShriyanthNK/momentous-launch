@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import DualityMark from "@/components/DualityMark";
 import PrimaryButton from "@/components/PrimaryButton";
@@ -55,6 +56,36 @@ export default function Home() {
           Take the self-check
         </PrimaryButton>
         <QuickWaitlistForm />
+      </section>
+
+      {/* Product preview */}
+      <section className="relative mx-auto w-full max-w-4xl px-6 py-16">
+        <h2 className="text-center font-serif text-2xl font-semibold text-cream sm:text-3xl">
+          What it actually looks like
+        </h2>
+        <p className="mx-auto mt-3 max-w-xl text-center text-cream/60">
+          One tap a day. A clear, honest record of whether you moved forward.
+        </p>
+        <div className="mt-10 flex flex-col items-center justify-center gap-10 sm:flex-row sm:gap-8">
+          <div className="w-56 overflow-hidden rounded-[2.5rem] border border-cream/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] sm:w-64">
+            <Image
+              src="/screenshots/app-today.png"
+              alt="Momentous daily check-in screen showing a 12-day streak and an honest yes-or-no question"
+              width={1284}
+              height={2778}
+              className="h-auto w-full"
+            />
+          </div>
+          <div className="w-56 overflow-hidden rounded-[2.5rem] border border-cream/10 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] sm:w-64">
+            <Image
+              src="/screenshots/app-history.png"
+              alt="Momentous history screen showing a calendar of daily check-ins over a month"
+              width={1284}
+              height={2778}
+              className="h-auto w-full"
+            />
+          </div>
+        </div>
       </section>
 
       {/* Value proposition */}
