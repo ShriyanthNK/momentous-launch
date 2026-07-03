@@ -109,10 +109,10 @@ export default function PrivacyPolicy() {
             <p className="mt-3">
               Questions about this policy or the app can be sent to{" "}
               <a
-                href="mailto:onlinenanda@gmail.com"
+                href="mailto:shriyanthnandakumar@gmail.com"
                 className="text-coral underline underline-offset-4"
               >
-                onlinenanda@gmail.com
+                shriyanthnandakumar@gmail.com
               </a>
               .
             </p>
