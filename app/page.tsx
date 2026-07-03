@@ -127,6 +127,12 @@ export default function Home() {
         <p className="text-xs text-cream/40">
           Momentous. Did you improve, or stay the same?
         </p>
+        <Link
+          href="/privacy"
+          className="text-xs text-cream/40 underline underline-offset-4 hover:text-cream/60"
+        >
+          Privacy Policy
+        </Link>
       </footer>
     </div>
   );
