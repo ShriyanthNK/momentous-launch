@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-// NOTE: this is a stub. It validates the payload and logs it server-side,
-// but does not actually send email or persist anywhere yet. Wire this up to
-// a real provider (Resend, ConvertKit, a database, etc.) before relying on
-// it to capture real leads.
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
 
@@ -15,12 +14,25 @@ export async function POST(request: Request) {
   }
 
   console.log("[subscribe] new signup", {
-    name: body.name,
     email: body.email,
     score: body.score,
     situation: body.situation,
     obstacle: body.obstacle,
   });
+
+  const { error } = await resend.contacts.create({
+    email: body.email,
+    audienceId: process.env.RESEND_AUDIENCE_ID as string,
+    unsubscribed: false,
+  });
+
+  if (error) {
+    console.error("[subscribe] resend error", error);
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again." },
+      { status: 502 }
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }
