@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Lora, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
@@ -14,10 +14,41 @@ const sansBody = Inter({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://momentous-launch.vercel.app";
+const TITLE = "Momentous: Did you improve, or stay the same?";
+const DESCRIPTION =
+  "One honest question a day. Take the 2-minute self-check and see exactly where you stand before Momentous launches.";
+
 export const metadata: Metadata = {
-  title: "Momentous: Did you improve, or stay the same?",
-  description:
-    "One honest question a day. Take the 2-minute self-check and see exactly where you stand before Momentous launches.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: TITLE,
+    template: "%s | Momentous",
+  },
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: "/",
+    siteName: "Momentous",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#16213e",
 };
 
 export default function RootLayout({

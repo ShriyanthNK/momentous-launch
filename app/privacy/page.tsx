@@ -3,8 +3,11 @@ import DualityMark from "@/components/DualityMark";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Momentous",
+  title: "Privacy Policy",
   description: "How Momentous handles your data.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 const LAST_UPDATED = "July 2, 2026";
